@@ -1,4 +1,4 @@
-# mRNA vaccine clinical safety and dosage intelligence
+# mRNA Vaccine Clinical Safety & Dosage Intelligence
 
 This project follows the supplied PRD. It brings together five parts: preparing patient data, predicting reaction risk, exploring self-attention, searching the provided safety guide, and generating structured reports. The final dashboard brings the results together.
 
