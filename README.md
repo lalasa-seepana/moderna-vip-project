@@ -2,7 +2,7 @@
 
 This project follows the supplied PRD. It brings together five parts: preparing patient data, predicting reaction risk, exploring self-attention, searching the provided safety guide, and generating structured reports. The final dashboard brings the results together.
 
-**Student engineering project output - not real clinical guidance.** The supplied safety reference is course material. The required FDA_Safety_Warnings_Cited field contains quotations from that reference and does not imply FDA authorship.
+**Student engineering project output - not real clinical guidance.** The supplied safety reference is course material. The required `FDA_Safety_Warnings_Cited` field contains quotations from that reference and does not imply FDA authorship.
 
 ## Installation and execution
 
