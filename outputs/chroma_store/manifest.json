@@ -1,0 +1,45 @@
+{
+  "collection": "mrna-24863692f4c3a602",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "max_seq_length": 512,
+  "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "source_sha256": "24863692f4c3a60274c3180aa7585b2cdf4b4b7c35fa764b303b703e90172e8c",
+  "chunks": [
+    {
+      "id": "chunk-000",
+      "text": "MODERNA\nmRNA Therapeutic Products\nClinical Safety, Storage & Dosing Reference Guide\nReference Document \u2014 RAG Knowledge Base Source\n\nCompany Context\nModerna \u2014 mRNA Therapeutics\nDocument Version\n1.0\nUsed By\nmRNA-VIP Project \u2014 Week 3 (RAG) and Week 4 (LLM Report Generation)\nFormat\nPlain-text source: mrna_safety_guidelines.txt\nCase study reference referencing Moderna's public mRNA work.\n\nNote to Students\nHOW TO USE THIS DOCUMENT\nThis reference guide was written for the mRNA-VIP course project to give your Week 3 retrieval-augmented generation (RAG) pipeline realistic, regulatory-style source material to search over. It reflects commonly known, general principles of mRNA product handling and dosing. Do not present it, or any report your pipeline generates from it, as real clinical or regulatory guidance.\nLoad this document's text into your chunking and embedding pipeline exactly as you would any other source document. Its four sections are designed to give your retriever a variety of realistic query types to handle: storage conditions, dosing bands, contraindications, and reporting rules.\n\nSection 1: Storage and Handling Requirements\n1.1 Ultra-Low Temperature Storage\nUnopened mRNA lipid nanoparticle formulations are stored at ultra-low temperature, typically between -25C and -15C for extended shelf life, or between -80C and -60C for maximum shelf-life formulations. Product removed from ultra-low storage and placed under refrigeration (2C to 8C) is generally considered stable for up to 30 days, after which it must be discarded if unused. Once a vial is punctured, its contents must be used within the manufacturer-specified in-use window,",
+      "start_token": 0,
+      "end_token": 349,
+      "token_count": 349,
+      "start_char": 1,
+      "end_char": 1659
+    },
+    {
+      "id": "chunk-001",
+      "text": "ation (2C to 8C) is generally considered stable for up to 30 days, after which it must be discarded if unused. Once a vial is punctured, its contents must be used within the manufacturer-specified in-use window, typically 6 to 12 hours when stored at room temperature.\n1.2 Refrigerated Storage\nRefrigerated storage (2C to 8C) is acceptable for short-term use immediately prior to administration. Product must never be refrozen once thawed. Vials should be kept upright and protected from light at all times, as mRNA formulations are photosensitive and repeated freeze-thaw cycles degrade the lipid nanoparticle structure.\n1.3 Transport Conditions\nDuring transport, validated cold-chain shipping containers with continuous temperature logging are required. Any excursion above -15C for formulations requiring ultra-low storage must be documented and reviewed before the affected batch is approved for patient use. Deviations lasting longer than 1 hour require the batch to be quarantined pending quality review.\n1.4 Visual Inspection Prior to Use\nPrior to administration, vials must be visually inspected for particulate matter or discoloration. Product exhibiting visible particulates, cloudiness inconsistent with the expected formulation appearance, or any container damage must not be administered and should be reported through the standard product-quality complaint process.\nSection 2: Dosing Guidance by Age Band\n2.1 General Dosing Principles\nDose selection for mRNA therapeutic products is generally determined by age, body weight where applicable, and the specific clinical indication. As a general reference range across mRNA vaccine platforms, primary-series doses commonly fall between 25 and 100 micrograms, while booster or lower-reactogenic",
+      "start_token": 299,
+      "end_token": 648,
+      "token_count": 350,
+      "start_char": 1448,
+      "end_char": 3202
+    },
+    {
+      "id": "chunk-002",
+      "text": "therapeutic products is generally determined by age, body weight where applicable, and the specific clinical indication. As a general reference range across mRNA vaccine platforms, primary-series doses commonly fall between 25 and 100 micrograms, while booster or lower-reactogenicity formulations are frequently dosed between 25 and 50 micrograms. Doses above 100 micrograms are considered high-reactogenicity doses and require secondary clinician review before administration.\n2.2 Age-Banded Reference Doses\nAges 6 months to 4 years: lowest available dose tier; administration requires pediatric-formulated product and is not interchangeable with adult vials.\nAges 5 to 11 years: intermediate pediatric dose tier, generally half the standard adult dose.\nAges 12 to 64 years: standard adult dosing range as listed in Section 2.1.\nAges 65 and older: standard adult dosing range applies; however, patients in this age band with two or more relevant pre-existing conditions should be flagged for secondary clinician review regardless of dose, due to elevated reactogenicity risk observed in this population.\n2.3 Dose Adjustment for Elevated Biomarker Levels\nPatients presenting with an inflammatory biomarker level meaningfully above the normal reference range at the time of screening should have dosing deferred until the biomarker returns to a normal range, or should receive the lowest clinically appropriate dose tier with enhanced post-administration monitoring, at the administering clinician's discretion.\nSection 3: Contraindications and Warnings\n3.1 Absolute Contraindications\nKnown severe allergic reaction (e.g., anaphylaxis) to a prior dose of the same product or to any component of the formulation, including the lipid nanoparticle exci",
+      "start_token": 598,
+      "end_token": 947,
+      "token_count": 349,
+      "start_char": 2921,
+      "end_char": 4670
+    },
+    {
+      "id": "chunk-003",
+      "text": "3.1 Absolute Contraindications\nKnown severe allergic reaction (e.g., anaphylaxis) to a prior dose of the same product or to any component of the formulation, including the lipid nanoparticle excipients.\nActive, unresolved severe adverse reaction from a previous dose that has not been cleared by an allergist or treating physician.\n3.2 Precautions Requiring Secondary Review\nThree or more relevant pre-existing conditions at time of screening.\nPrior history of a moderate reaction to an mRNA-based product, even if the reaction has since resolved.\nCandidate dose exceeding 100 micrograms combined with an elevated biomarker level.\nAge under 5 years combined with any pre-existing condition.\n3.3 Standard Warnings\nPatients should be monitored for at least 15 minutes following administration, or 30 minutes for patients with a documented history of any allergic reaction. Localized injection-site reactions (soreness, redness, mild swelling) are common and do not by themselves require secondary review. Systemic reactions such as fever, chills, or fatigue lasting more than 48 hours should be documented and reported.\nSection 4: Adverse Event Documentation\n4.1 Reporting Thresholds\nAny adverse event classified as moderate or severe must be documented within 24 hours of occurrence, including onset time, duration, severity, and any treatment administered. Mild, self-limiting reactions consistent with expected reactogenicity do not require individual reporting but should be captured in aggregate monitoring where available.\n4.2 Escalation Criteria\nAn adverse event should be escalated to clinical safety review if it involves hospitalization, is life-threatening, results in persistent disability, or is otherwise considered medically significant by the administering clinician.\nEnd of Document.",
+      "start_token": 897,
+      "end_token": 1243,
+      "token_count": 346,
+      "start_char": 4475,
+      "end_char": 6273
+    }
+  ]
+}
