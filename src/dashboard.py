@@ -30,7 +30,7 @@ def build_dashboard(output=OUTPUT):
     axes[2].bar_label(bars, labels=[f'{v:.4f} s' for v in values], padding=4)
     axes[2].set(title='Measured stage latency', ylabel='Seconds')
     axes[2].set_ylim(0, max(values) * 1.3)
-    fig.suptitle('mRNA VIP • Educational pipeline • Not clinical guidance', fontsize=15)
+    fig.suptitle('mRNA Clinical Intelligence Educational dashboard', fontsize=15)
     fig.tight_layout(); fig.savefig(output / 'figures/dashboard.png', dpi=160); plt.close(fig)
 
 

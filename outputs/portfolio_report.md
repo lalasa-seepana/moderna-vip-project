@@ -1,6 +1,6 @@
 # mRNA vaccine clinical safety and dosage intelligence
 
-**Student engineering project output — not real clinical guidance.**
+**Student engineering project output, not real clinical guidance.**
 
 ## Executive summary
 
