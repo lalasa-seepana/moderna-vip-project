@@ -2,11 +2,11 @@
 
 | Question | Top result | Seconds |
 |---|---|---:|
-| How long can thawed product stay refrigerated? | [chunk-001](#chunk-001) | 0.0116 |
-| What dose requires secondary clinician review? | [chunk-002](#chunk-002) | 0.0060 |
-| What is an absolute contraindication involving a severe allergy? | [chunk-003](#chunk-003) | 0.0058 |
-| When must moderate or severe adverse events be documented? | [chunk-003](#chunk-003) | 0.0055 |
-| Can thawed vials be refrozen? | [chunk-001](#chunk-001) | 0.0051 |
+| How long can thawed product stay refrigerated? | [chunk-001](#chunk-001) | 0.0202 |
+| What dose requires secondary clinician review? | [chunk-002](#chunk-002) | 0.0211 |
+| What is an absolute contraindication involving a severe allergy? | [chunk-003](#chunk-003) | 0.0215 |
+| When must moderate or severe adverse events be documented? | [chunk-003](#chunk-003) | 0.0123 |
+| Can thawed vials be refrozen? | [chunk-001](#chunk-001) | 0.0113 |
 
 ## Retrieval quality
 
@@ -15,7 +15,7 @@ The questions cover storage, dose review, contraindications and adverse-event re
 ## Unsupported query
 What is the vaccine efficacy percentage against malaria?
 
-The top result was chunk-002 (query time 0.0055 seconds). The source supplies no malaria efficacy percentage. Nearest-neighbor search ranks available text even when it cannot answer a question; similarity is not proof of evidence coverage.
+The top result was chunk-002 (query time 0.0113 seconds). The source supplies no malaria efficacy percentage. Nearest-neighbor search ranks available text even when it cannot answer a question; similarity is not proof of evidence coverage.
 
 ## Retrieved source chunks
 

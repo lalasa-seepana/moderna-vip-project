@@ -1,10 +1,10 @@
 # mRNA vaccine clinical safety and dosage intelligence
 
-**Student engineering project output, not real clinical guidance.**
+**Student engineering project output — not real clinical guidance.**
 
 ## Executive summary
 
-This project combines a tabular risk classifier, a self-attention implementation, and LLM-generated structured reports. The dataset contains 500 synthetic records. Both classifiers were evaluated on the same stratified holdout, and logistic regression was selected with a positive-class F1 of 0.702. Five reports were generated through an LLM, checked against a strict schema and the retrieved source text, and saved as JSON and Markdown. The final dashboard displays measured classifier performance, computed attention weights and recorded retrieval/report latency. This is an engineering exercise and does not establish clinical validity.
+This project combines a tabular risk classifier, a self-attention implementation, semantic retrieval over the supplied course reference, and LLM-generated structured reports. The dataset contains 500 synthetic records. Both classifiers were evaluated on the same stratified holdout, and logistic regression was selected with a positive-class F1 of 0.702. Five reports were generated through an LLM, checked against a strict schema and the retrieved source text, and saved as JSON and Markdown. The final dashboard displays measured classifier performance, computed attention weights and recorded retrieval/report latency. This is an engineering exercise and does not establish clinical validity.
 
 ## Architecture
 
@@ -68,11 +68,11 @@ Chunk overlap helps preserve facts near boundaries, but the relatively broad chu
 
 | Question | Top result | Seconds |
 |---|---|---:|
-| How long can thawed product stay refrigerated? | [chunk-001](retrieval_evaluation.md#chunk-001) | 0.0116 |
-| What dose requires secondary clinician review? | [chunk-002](retrieval_evaluation.md#chunk-002) | 0.0060 |
-| What is an absolute contraindication involving a severe allergy? | [chunk-003](retrieval_evaluation.md#chunk-003) | 0.0058 |
-| When must moderate or severe adverse events be documented? | [chunk-003](retrieval_evaluation.md#chunk-003) | 0.0055 |
-| Can thawed vials be refrozen? | [chunk-001](retrieval_evaluation.md#chunk-001) | 0.0051 |
+| How long can thawed product stay refrigerated? | [chunk-001](retrieval_evaluation.md#chunk-001) | 0.0202 |
+| What dose requires secondary clinician review? | [chunk-002](retrieval_evaluation.md#chunk-002) | 0.0211 |
+| What is an absolute contraindication involving a severe allergy? | [chunk-003](retrieval_evaluation.md#chunk-003) | 0.0215 |
+| When must moderate or severe adverse events be documented? | [chunk-003](retrieval_evaluation.md#chunk-003) | 0.0123 |
+| Can thawed vials be refrozen? | [chunk-001](retrieval_evaluation.md#chunk-001) | 0.0113 |
 
 The following is the verbatim top chunk (chunk-002) for the dose-review question in the recorded evaluation:
 
@@ -106,16 +106,12 @@ The following is the full saved report for P0001. Its risk-related statement is 
     "Conservative project policy withholds eligibility because the retrieved guidance requires information absent from the input: component-allergy clearance, the clinical indication, a patient-specific biomarker reference range. Unknown information does not establish that a clinical contraindication is present."
   ],
   "FDA_Safety_Warnings_Cited": [
-    "Ages 12 to 64 years: standard adult dosing range as listed in Section 2.1.",
+    "Patients should be monitored for at least 15 minutes following administration, or 30 minutes for patients with a documented history of any allergic reaction.",
+    "Systemic reactions such as fever, chills, or fatigue lasting more than 48 hours should be documented and reported.",
     "As a general reference range across mRNA vaccine platforms, primary-series doses commonly fall between 25 and 100 micrograms, while booster or lower-reactogenicity formulations are frequently dosed between 25 and 50 micrograms.",
-    "Doses above 100 micrograms are considered high-reactogenicity doses and require secondary clinician review before administration.",
-    "Patients presenting with an inflammatory biomarker level meaningfully above the normal reference range at the time of screening should have dosing deferred until the biomarker returns to a normal range, or should receive the lowest clinically appropriate dose tier with enhanced post-administration monitoring, at the administering clinician's discretion.",
-    "Three or more relevant pre-existing conditions at time of screening.",
-    "Prior history of a moderate reaction to an mRNA-based product, even if the reaction has since resolved.",
-    "Candidate dose exceeding 100 micrograms combined with an elevated biomarker level.",
-    "Age under 5 years combined with any pre-existing condition.",
     "Known severe allergic reaction (e.g., anaphylaxis) to a prior dose of the same product or to any component of the formulation, including the lipid nanoparticle excipients.",
-    "Dose selection for mRNA therapeutic products is generally determined by age, body weight where applicable, and the specific clinical indication."
+    "Dose selection for mRNA therapeutic products is generally determined by age, body weight where applicable, and the specific clinical indication.",
+    "Patients presenting with an inflammatory biomarker level meaningfully above the normal reference range at the time of screening should have dosing deferred until the biomarker returns to a normal range, or should receive the lowest clinically appropriate dose tier with enhanced post-administration monitoring, at the administering clinician's discretion."
   ],
   "Disclaimer": "Student engineering project output — not real clinical guidance."
 }
@@ -127,7 +123,7 @@ All five patient reports are stored as matching JSON/Markdown pairs. The generat
 
 ![Three-panel results dashboard](figures/dashboard.png)
 
-The three panels are the selected model’s ROC curve, the computed attention matrix and a latency comparison. The image is saved at 160 DPI. Mean retrieval time is 0.0105 seconds and mean LLM report-generation time is 86.8420 seconds across five patient reports. Each underlying measurement is retained in latencies.json. Query timing includes embedding and search; report timing includes the LLM response and validation, including a validation retry if one occurs. Model loading, initial indexing and file writes are excluded.
+The three panels are the selected model’s ROC curve, the computed attention matrix and a latency comparison. The image is saved at 160 DPI. Mean retrieval time is 0.0237 seconds and mean LLM report-generation time is 80.9275 seconds across five patient reports. Each underlying measurement is retained in latencies.json. Query timing includes embedding and search; report timing includes the LLM response and validation, including a validation retry if one occurs. Model loading, initial indexing and file writes are excluded.
 
 ## Limitations and future work
 
