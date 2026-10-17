@@ -1,7 +1,5 @@
 # mRNA vaccine clinical safety and dosage intelligence
 
-**Student engineering project output — not real clinical guidance.**
-
 ## Executive summary
 
 This project combines a tabular risk classifier, a self-attention implementation, semantic retrieval over the supplied course reference, and LLM-generated structured reports. The dataset contains 500 synthetic records. Both classifiers were evaluated on the same stratified holdout, and logistic regression was selected with a positive-class F1 of 0.702. Five reports were generated through an LLM, checked against a strict schema and the retrieved source text, and saved as JSON and Markdown. The final dashboard displays measured classifier performance, computed attention weights and recorded retrieval/report latency. This is an engineering exercise and does not establish clinical validity.
