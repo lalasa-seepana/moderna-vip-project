@@ -1,0 +1,19 @@
+{
+  "Eligible_For_Vaccine": false,
+  "Recommended_Dose_mg": 0.0,
+  "Reasoning_Steps": [
+    "Model 1 predicts Low risk; high-risk probability = 0.300499.",
+    "The generated eligibility recommendation was rejected by the safety checks.",
+    "The source requires secondary clinician review above 100 micrograms (0.1 mg); this is a review threshold, not an absolute maximum.",
+    "Conservative project policy withholds eligibility because the retrieved guidance requires information absent from the input: component-allergy clearance, the clinical indication, a patient-specific biomarker reference range. Unknown information does not establish that a clinical contraindication is present."
+  ],
+  "FDA_Safety_Warnings_Cited": [
+    "Ages 12 to 64 years: standard adult dosing range as listed in Section 2.1.",
+    "Doses above 100 micrograms are considered high-reactogenicity doses and require secondary clinician review before administration.",
+    "Three or more relevant pre-existing conditions at time of screening.",
+    "Known severe allergic reaction (e.g., anaphylaxis) to a prior dose of the same product or to any component of the formulation, including the lipid nanoparticle excipients.",
+    "Patients presenting with an inflammatory biomarker level meaningfully above the normal reference range at the time of screening should have dosing deferred until the biomarker returns to a normal range, or should receive the lowest clinically appropriate dose tier with enhanced post-administration monitoring, at the administering clinician's discretion.",
+    "Dose selection for mRNA therapeutic products is generally determined by age, body weight where applicable, and the specific clinical indication."
+  ],
+  "Disclaimer": "Student engineering project output \u2014 not real clinical guidance."
+}
