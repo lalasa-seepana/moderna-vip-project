@@ -1,8 +1,8 @@
 # mRNA vaccine clinical safety and dosage intelligence
 
-An implementation of the supplied PRD: patient-data validation and risk classification, self-attention, local guideline retrieval, structured LLM reports, and a three-panel results dashboard.
+This project follows the supplied PRD. It brings together five parts: preparing patient data, predicting reaction risk, exploring self-attention, searching the provided safety guide, and generating structured reports. The final dashboard brings the results together.
 
-**Student engineering project output — not real clinical guidance.** The supplied safety reference is course material. The required `FDA_Safety_Warnings_Cited` field contains quotations from that reference and does not imply FDA authorship.
+**Student engineering project output - not real clinical guidance.** The supplied safety reference is course material. The required FDA_Safety_Warnings_Cited field contains quotations from that reference and does not imply FDA authorship.
 
 ## Installation and execution
 
@@ -32,7 +32,7 @@ python -m src.pipeline
 python -m pytest -q
 ```
 
-The pipeline trains both classifiers, computes attention, builds or reloads the local semantic index, evaluates retrieval, generates five schema-validated LLM reports, and rebuilds the dashboard and portfolio report. It uses stable output names, replacing previous results on reruns rather than accumulating duplicates.
+Running the main command trains the two classifiers, calculates attention, prepares the guideline search index, tests retrieval, creates five validated reports, and updates the dashboard and project report. Re-running it updates the same output files instead of making extra copies.
 
 ## Project files
 
@@ -53,7 +53,7 @@ The pipeline trains both classifiers, computes attention, builds or reloads the 
 - `outputs/latencies.json`: measured retrieval/report times used by the dashboard.
 - `outputs/portfolio_report.md`: final project report with results, interpretation, limitations and reproduction commands.
 
-The virtual environment and embedding cache are local runtime dependencies, not submission artifacts. They are ignored by version control. The runtime imports do not require the original Word documents after the provided text has been extracted.
+The virtual environment and downloaded model cache are only needed on the local computer and should not be submitted. Once the guide has been converted to text, the program reads that text file rather than the original Word document.
 
 ## Individual modules and notebooks
 
@@ -66,7 +66,7 @@ python src/dashboard.py
 python -m src.portfolio
 ```
 
-Dashboard and portfolio commands consume saved artifacts. Module 4 alone reads the private LLM configuration and makes LLM API calls; Modules 1–3 and 5 run locally without that key. Open the notebooks in a notebook editor and choose `.venv/bin/python` as the kernel.
+Dashboard and portfolio commands consume saved artifacts. Module 4 alone reads the private LLM configuration and makes LLM API calls; Modules 1–3 and 5 run locally without that key. Open the notebooks in a notebook editor and choose .venv/bin/python as the kernel.
 
 To query the persisted index:
 
@@ -78,10 +78,10 @@ chunks, seconds = query_guidelines(index, "Can thawed product be refrozen?")
 
 ## Implementation choices
 
-The literal history category `None` is preserved. Only blank cells are missing. The seed-42 stratified 80/20 split precedes imputation, scaling and encoding, preventing preprocessing leakage. Positive-class test F1 selects the model as specified; this selection use of the test set is discussed in the portfolio report.
+The literal history category “None” is kept as-is; only truly blank cells are treated as missing. A seed-42 stratified 80/20 train-test split is performed first, before any imputation, scaling or encoding, so that preprocessing information never leaks from the test set into the training pipeline. Model selection is driven by positive-class F1 on the held-out test set (exactly as required); the implications of this choice are discussed in the portfolio report.
 
-The handout's four-base encoder acceptance example is supported by the low-level encoder, while application inputs must contain 5–50 valid bases. Attention uses fixed random weights and has no biological interpretation.
+The handout’s four-base encoder acceptance example is fully supported by the low-level encoder. Application-level inputs are restricted to strings containing between 5 and 50 valid bases. The attention mechanism uses fixed random weights and is not intended to carry any biological interpretation.
 
-LangChain's token splitter produces guideline chunks containing 300–500 embedding tokens with 50-token overlap. Source offsets preserve exact quotations. Numeric dose values are converted from micrograms to milligrams. The 100-microgram review threshold is not treated as an absolute maximum. The report layer checks explicit maxima separately, rejects unsupported citations, verifies the exact Module 1 risk statement, and retries invalid responses exactly once.
+LangChain’s token splitter produces guideline chunks of 300–500 embedding tokens with a 50-token overlap. Source offsets are retained so that exact quotations can be recovered. Numeric dose values are converted from micrograms to milligrams; the 100-microgram review threshold is treated as a soft guideline rather than a hard upper limit. The report layer independently checks any explicit maxima, rejects unsupported citations, verifies the precise Module 1 risk statement, and performs a single retry on invalid responses.
 
-Reports use conservative eligibility when the supplied evidence cannot establish a decision. A zero dose means no recommendation. Every output report contains the required disclaimer, and all figures and performance measures come from executed modules.
+When the available evidence is insufficient to reach a firm decision, reports adopt a conservative eligibility stance. A recorded dose of zero is interpreted as “no recommendation.” Every generated report includes the required disclaimer, and all figures and performance metrics are taken directly from the executed modules.
